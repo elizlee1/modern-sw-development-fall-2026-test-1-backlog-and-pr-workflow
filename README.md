@@ -29,10 +29,17 @@ You are a Junior Software Engineer at a gaming firm. You have inherited the `bos
 
 Tasks to identify and comment:
 - **Attack Logic:** Locate the `attack` function. Add a comment explaining that the math to subtract 10 health from the Boss (`b_hp`) is missing and must be added.
+# BUG: The attack is missing the math needed to subtract 10 HP from the Boss.
+# FIX: Add b_hp -= 10 so each attack reduces the Boss's health by 10.
 - **Healing Guardrails:** Locate the `heal` function. Add a comment explaining the need for boundary checks to prevent a player from healing past `50` HP or healing when their health is `0` (or less).
+# BUG: The player can heal past the maximum of 50 HP or attempt to heal when
+# their health is 0 or less.
+# FIX: Check that p_hp is greater than 0 and cap the healed value at MAX_HP (50).
 - **Security Audit:** Locate the `SECRET_CODE`. Add a comment stating that this variable and the cheat logic must be removed to close the backdoor vulnerability.
+SECRET_CODE = ...
 - **Win Condition:** Locate the game loop. Add a comment explaining how to trigger a "Victory" message and terminate the loop when the Boss health reaches `0`.
-
+# SECURITY BUG: This hardcoded secret and the cheat logic create a backdoor
+# vulnerability. FIX: Remove SECRET_CODE and all logic that uses it.
 ---
 
 ## Phase 3 — Pull Request & Peer Review (40 points)
